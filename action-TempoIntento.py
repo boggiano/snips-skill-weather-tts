@@ -29,11 +29,12 @@ def intent_received(hermes, intent_message):
 
     quando_slot = intent_message.slots.quando.first()
     citta_slot = intent_message.slots.citta.first()
-    previsioni_slot = intent_message.slots.previsioni
+    previsioni_slot = intent_message.slots.previsioni.first()
 
     if citta_slot is not None:
         sentence += 'a ' + citta_slot.value
         print ("[Dove] :  {}".format(citta_slot.value))
+        
     if previsioni_slot is not None:
         sentence += 'in ' + previsioni_slot.value
         print ("[Cosa] :  {}".format(previsioni_slot.value))
